@@ -1,0 +1,227 @@
+/* Base Styles */
+.backgroundImage {
+    background-image: url('src/assets/images/bg2.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 45%;
+    width: 100%;
+    display: flex;
+}
+
+.imageText {
+    padding: 2%;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+}
+.report{
+    font-weight: 500;
+    line-height: 20px;
+    background-color: #ea801d;
+    border-color: #ea801d;
+   
+}
+.imageButtonStyle{
+    background-color: #b1afaf;
+    border-color: #ea801d;
+}
+.imageButtonStyle:focus{
+    border-color: #ea801d; 
+    box-shadow: 0 0 5px #ea801d
+}
+.form-control {
+    margin-bottom: 10px;
+    width: 300px;
+}
+.buttonClass {
+    /* display: flex;
+    justify-content: center;
+    align-content: center; */
+    padding-top: 5%;
+    float: right;
+}
+.tableMain{
+    margin: 1%;
+    padding: 2%;
+    border: 1px solid #ccc;
+    border-radius: 1%;
+    box-shadow: 0 4px 8px rgb(0, 0, 0, 0.4);
+}
+::ng-deep .ngx-pagination .current {
+    padding: .1875rem .625rem;
+    background: #b1afaf !important;
+    color: #000000 !important;
+    cursor: default;
+    border-radius: 30%;
+}
+.searchBox{
+    border-color: #ea801d;
+    
+}
+.searchBox:focus {
+    border-color: #ea801d; /* Change to your desired focus border color */
+    box-shadow: 0 0 5px #ea801d /* Optional: add a shadow for better visibility */
+  }
+.pagination{
+   align-items: center;
+   justify-content: center;
+   display: flex;
+}
+.imageText h2 {
+    color: white;
+    margin: 0;
+    font-size: 25px;
+}
+
+.sentence {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    padding-top: 2%;
+    font-size: 13px;
+}
+
+.cardDiv {
+    margin-top: 5%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.countCard {
+    border-radius: 5%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background-color: rgba(15, 15, 15, 0.7);
+    /* Added for better visibility */
+    padding: 10px;
+    /* Added for spacing */
+}
+
+.rotated-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    vertical-align: middle;
+    transform: scaleX(-1);
+    transition: transform 0.3s ease;
+    /* Optional: Smooth rotation transition */
+}
+
+.headingCount {
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    font-weight: 500;
+    padding-left: 4%;
+}
+
+.walkingImage {
+    color: white;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 2%;
+}
+
+.vertical-line {
+    width: 1px;
+    background: #ccc;
+    height: 2.5rem;
+    margin: 0 10px;
+}
+
+.countIntclass {
+    margin: 0;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 35px;
+    padding-left: 2%;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    .cardDiv {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .col-3,
+    .col-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding: 0 10px;
+        /* Add padding for spacing */
+    }
+
+    .walkingImage {
+        flex-direction: column;
+        margin: 10px 0;
+    }
+
+    .vertical-line {
+        display: none;
+        /* Hide the vertical line on smaller screens */
+    }
+
+    .countIntclass {
+        font-size: 24px;
+        /* Adjust font size for smaller screens */
+    }
+
+    .imageText h2 {
+        font-size: 22px;
+    }
+
+    .sentence {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .imageText {
+        padding: 1%;
+    }
+
+    .countIntclass {
+        font-size: 20px;
+        /* Further adjust font size */
+    }
+
+    .imageText h2 {
+        font-size: 20px;
+    }
+
+    .sentence {
+        font-size: 11px;
+    }
+
+    .cardDiv {
+        padding-top: 2%;
+    }
+}
+
+@media (max-width: 576px) {
+    .countCard {
+        flex-direction: column;
+        padding: 5px;
+    }
+
+    .walkingImage {
+        flex-direction: column;
+        margin: 5px 0;
+    }
+
+    .countIntclass {
+        font-size: 18px;
+    }
+
+    .imageText h2 {
+        font-size: 18px;
+    }
+
+    .sentence {
+        font-size: 10px;
+    }
+    }

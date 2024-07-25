@@ -1,0 +1,90 @@
+<div class="mainContainer">
+    <div class="backgroundImage">
+        <div class="imageText">
+            <h2 style="text-align: center;">Vehicle Count</h2>
+            <span class="sentence">Analysis of Vehicle Count Across Different Categories Such as In/Out Status and
+                Images.</span>
+            <div class="row cardDiv">
+                <div class="col-3">
+                    <div class="countCard">
+                        <span class="headingCount">In Count</span>
+                    </div>
+                    <div class="walkingImage">
+                        <span style="padding-right: 2%;">
+                            <img id="walking-icon" style="width: 2.5rem; height: 2.5rem; vertical-align: middle"
+                                src="assets/images/SVG ICONS/car-front-fill.svg" alt="Person walking icon" />
+                        </span>
+                        <span class="vertical-line"></span>
+                        <span class="countIntclass">
+                            65
+                        </span>
+
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="countCard">
+                        <span class="headingCount">Out Count </span>
+                    </div>
+                    <div class="walkingImage">
+                        <span style="padding-right: 2%;">
+                            <img id="walking-icon" class="rotated-icon" src="assets/images/SVG ICONS/car-front-fill.svg"
+                                alt="Person walking icon" />
+                        </span>
+                        <span class="vertical-line"></span>
+                        <span class="countIntclass">
+                            65
+                        </span>
+
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="buttonClass">
+                        <button type="button" class="btn btn-dark report">Download Report</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="tableMain">
+        <input type="text" [(ngModel)]="searchText" placeholder="Search.." class="form-control searchBox">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Camera Name</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Vehicle Type</th>
+                    <th scope="col">Vehicle Number</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">In/Out Status</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of filteredvehicleData() | paginate: { itemsPerPage: 6, currentPage: page }">
+                    <th scope="row">{{ item.hotelId }}</th>
+                    <td>{{ item.cameraname }}</td>
+                    <td>{{ item.date }}</td>
+                    <td>{{ item.time }}</td>
+                    <td>{{ item.classification }}</td>
+                    <td>{{ item.number }}</td>
+                    <td>{{ item.location }}</td>
+                    <td>{{ item.status }}</td>
+                    <td><button type="button" class="btn btn-outline-secondary imageButtonStyle"> <img id="walking-icon"
+                                style="width: 1rem; height: 1rem; vertical-align: middle"
+                                src="assets/images/SVG ICONS/images.svg" alt="Person walking icon" /></button>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+        <div class="pagination">
+            <pagination-controls (pageChange)="page = $event"></pagination-controls>
+        </div>
+    </div>
+
+
+
+</div>
