@@ -9,6 +9,8 @@ import { VehicleCountComponent } from './vehicle-count/vehicle-count.component';
 import { LuggageCountComponent } from './luggage-count/luggage-count.component';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { HttpClientModule } from '@angular/common/http';
+import { NgxImageZoomModule } from 'ngx-image-zoom';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     CommonModule,
     ComponentsRoutingModule,
     FormsModule,
-    NgxPaginationModule 
+    NgxPaginationModule,
+    HttpClientModule,
+    NgxImageZoomModule
   ]
 })
 export class ComponentsModule { }

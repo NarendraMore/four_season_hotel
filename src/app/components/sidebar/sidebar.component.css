@@ -108,7 +108,7 @@
     cursor: pointer;
 }
 
-.nav-link:hover {
+.nav-link :hover{
     color: #1dc7ea;
 }
 
@@ -166,7 +166,7 @@
 
 #menu li.active {
     /* background-color: #9f9fba;  */
-    color: #6968bd;
+    color: #ea801d;
 }
 
 #menu li {

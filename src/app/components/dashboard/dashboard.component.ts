@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
+import { ServiceService } from 'src/app/service/service.service';
 
 Chart.register(...registerables);
 @Component({
@@ -8,55 +9,89 @@ Chart.register(...registerables);
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-  constructor() { }
+  CountArrayIn: any;
+  currentDate: any;
+  currentvehicleInCount: any;
+  currentPersonDate: any;
+  totalluggageCount: any;
+  constructor(private service: ServiceService) { }
 
   ngOnInit(): void {
     this.createChart();
+    this.getCurrentCount();
     this.createChartBar();
+    this.getPersonCount();
+    this.getLuggageCount();
   }
+  refreshPcount() {
+    this.getPersonCount();
+  } refreshVcount() {
+    this.getCurrentCount();
+  }
+  refreshLcount() {
+    this.getLuggageCount();
+  }
+  getCurrentCount() {
+    this.service.getcurrentCount().subscribe((currentCount: any) => {
+      this.currentvehicleInCount = currentCount.totalInCount;
+      this.currentPersonDate = currentCount.date
+    })
+  }
+  getPersonCount() {
+    this.service.getPersonCount().subscribe((CountData: any) => {
+      this.CountArrayIn = CountData.totalInCount
+      this.currentDate = CountData.date
 
-   createChart(): void {
+    })
+  }
+  getLuggageCount() {
+    this.service.getLuggeageCount().subscribe((luggageCount: any) => {
+      this.totalluggageCount = luggageCount.totalLuggageCount
+
+    })
+  }
+  createChart(): void {
     const chartData = {
-        labels: ["S", "M", "T", "W", "T", "F", "S"],
-        datasets: [{
-            data: [589, 445, 483, 503, 689, 692, 634],
-            borderColor: '#ea801d', // Color for the first line
-            backgroundColor: '#ea801d', // Optional: color for the area under the first line
-            borderWidth: 2, // Width of the line
-            tension: 0.1 // Smoothness of the line
-            
-        },
-        {
-            data: [639, 465, 493, 478, 589, 632, 674],
-            borderColor: '#1dc7ea', // Color for the second line
-            backgroundColor: '#1dc7ea', // Optional: color for the area under the second line
-            borderWidth: 2, // Width of the line
-            tension: 0.1 // Smoothness of the line
-        }]
+      labels: ["S", "M", "T", "W", "T", "F", "S"],
+      datasets: [{
+        data: [589, 445, 483, 503, 689, 692, 634],
+        borderColor: '#ea801d', // Color for the first line
+        backgroundColor: '#ea801d', // Optional: color for the area under the first line
+        borderWidth: 2, // Width of the line
+        tension: 0.1 // Smoothness of the line
+
+      },
+      {
+        data: [639, 465, 493, 478, 589, 632, 674],
+        borderColor: '#1dc7ea', // Color for the second line
+        backgroundColor: '#1dc7ea', // Optional: color for the area under the second line
+        borderWidth: 2, // Width of the line
+        tension: 0.1 // Smoothness of the line
+      }]
     };
 
     const chLine = document.getElementById('chLine') as HTMLCanvasElement;
     if (chLine) {
-        new Chart(chLine, {
-            type: 'line',
-            data: chartData,
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: false
-                    }
-                },
-                plugins: {
-                    legend: {
-                        display: true // Set to true if you want to show the legend
-                    }
-                }
+      new Chart(chLine, {
+        type: 'line',
+        data: chartData,
+        options: {
+          scales: {
+            y: {
+              beginAtZero: false
             }
-        });
+          },
+          plugins: {
+            legend: {
+              display: true // Set to true if you want to show the legend
+            }
+          }
+        }
+      });
     }
-}
-createChartBar(): void {
-    const colors = ['#007bff','#28a745','#444444','#c3e6cb','#dc3545','#6c757d'];
+  }
+  createChartBar(): void {
+    const colors = ['#007bff', '#28a745', '#444444', '#c3e6cb', '#dc3545', '#6c757d'];
 
     const chBar = document.getElementById('chBar') as HTMLCanvasElement;
     const chartData = {

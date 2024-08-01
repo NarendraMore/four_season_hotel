@@ -2,8 +2,8 @@
     <div class="backgroundImage">
         <div class="imageText">
             <h2 style="text-align: center;">Vehicle Count</h2>
-            <span class="sentence">Analysis of Vehicle Count Across Different Categories Such as In/Out Status and
-                Images.</span>
+            <span class="sentence">Analysis of Vehicle Count Across Different Categories Such as In/Out Status 
+                ,Images and Download Reports.</span>
             <div class="row cardDiv">
                 <div class="col-3">
                     <div class="countCard">
@@ -16,7 +16,7 @@
                         </span>
                         <span class="vertical-line"></span>
                         <span class="countIntclass">
-                            65
+                            {{currentvehicleInCount}}
                         </span>
 
                     </div>
@@ -32,14 +32,14 @@
                         </span>
                         <span class="vertical-line"></span>
                         <span class="countIntclass">
-                            65
+                            {{currentvwhicleOutCount}}
                         </span>
 
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="buttonClass">
-                        <button type="button" class="btn btn-dark report">Download Report</button>
+                        <button type="button" data-toggle="modal" data-target="#exampleModalCenter3" class="btn btn-dark report">Download Report</button>
                     </div>
                 </div>
             </div>
@@ -58,13 +58,14 @@
                     <th scope="col">Vehicle Type</th>
                     <th scope="col">Vehicle Number</th>
                     <th scope="col">Location</th>
-                    <th scope="col">In/Out Status</th>
+                    <th scope="col">In/Out</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of filteredvehicleData() | paginate: { itemsPerPage: 6, currentPage: page }">
-                    <th scope="row">{{ item.hotelId }}</th>
+                <tr
+                    *ngFor="let item of filteredvehicleData() | paginate: { itemsPerPage: 6, currentPage: page }; let i = index">
+                    <th scope="row">{{ i + 1 }}</th>
                     <td>{{ item.cameraname }}</td>
                     <td>{{ item.date }}</td>
                     <td>{{ item.time }}</td>
@@ -72,12 +73,15 @@
                     <td>{{ item.number }}</td>
                     <td>{{ item.location }}</td>
                     <td>{{ item.status }}</td>
-                    <td><button type="button" class="btn btn-outline-secondary imageButtonStyle"> <img id="walking-icon"
-                                style="width: 1rem; height: 1rem; vertical-align: middle"
-                                src="assets/images/SVG ICONS/images.svg" alt="Person walking icon" /></button>
+                    <td>
+                        <button (click)="onClickANPRPhoto(item._id)" class="btn btn-outline-secondary imageButtonStyle"
+                            data-toggle="modal" data-target="#exampleModalCenter">
+                            <img id="walking-icon" style="width: 1rem; height: 1rem; vertical-align: middle"
+                                src="assets/images/SVG ICONS/images.svg" alt="Person walking icon" />
+                        </button>
                     </td>
-
                 </tr>
+
             </tbody>
         </table>
         <div class="pagination">
@@ -87,4 +91,69 @@
 
 
 
+</div>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Vehicle Image</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div style="align-items: center;justify-content: center;display: flex;">
+                    <img class="" style="width: 100%; height: 100%" [src]="anprImageurl" alt="" />
+                </div>
+            </div>
+            <div class="modal-footer footerClass">
+                <button type="button" class="btn btn-secondary closeButton" data-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary ">Save changes</button> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+ <!-- download card -->
+ <div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+ aria-hidden="true">
+ <div class="modal-dialog modal-dialog-centered" role="document">
+     <div class="modal-content">
+         <div class="modal-header">
+             <h5 class="modal-title" id="exampleModalCenterTitle">Vehicle Count Report</h5>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+             </button>
+         </div>
+         <div class="modal-body">
+             <!-- app.component.html -->
+             <div class="container">
+                 <form #timestampForm="ngForm" (ngSubmit)="downloadData(timestampForm)">
+                   <div class="form-group mb-3">
+                     <label for="inTime" class="form-label">In Time</label>
+                     <input type="datetime-local" id="inTime" class="form-control" [(ngModel)]="inTime" name="inTime" required>
+                   </div>
+                   <div class="form-group mb-3">
+                     <label for="outTime" class="form-label">Out Time</label>
+                     <input type="datetime-local" id="outTime" class="form-control" [(ngModel)]="outTime" name="outTime" required>
+                   </div>
+                   <div class="form-group mb-3">
+                     <label for="dropdown" class="form-label">Select Option</label>
+                     <select id="dropdown" class="form-select dropdown" [(ngModel)]="selectedOption" name="selectedOption" required>
+                       <option *ngFor="let option of ANPRdataArray" [value]="option.cam_ip">{{ option.cam_ip }}</option>
+                     </select>
+                   </div>
+                 
+                 </form>
+               </div>
+         </div>
+         <div class="modal-footer">
+             <button type="button" (click)="resetForm(timestampForm)" class="btn btn-secondary cancelButton"
+                 data-dismiss="modal">Close</button>
+             <button type="button" (click)="downloadData(timestampForm)" data-dismiss="modal"
+                 class="btn btn-dark reports">Download</button>
+         </div>
+     </div>
+ </div>
 </div>

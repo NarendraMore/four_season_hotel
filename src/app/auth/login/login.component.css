@@ -1,0 +1,56 @@
+.containerImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url("src/assets/images/vids4.webp");
+    background-size: cover;
+    background-position: center;
+}
+
+.inputClass {
+    border-color: rgb(33, 2, 104);
+}
+
+.inputClass:focus {
+    border-color: rgb(33, 2, 104);
+    box-shadow: rgb(33, 2, 104);
+}
+
+.mainDiv {
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Optional: to make form more readable against background */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.formDiv {
+    margin-bottom: 2rem;
+}
+
+.loginText {
+    font-size: 25px;
+    font-weight: 600;
+    background: linear-gradient(to right, rgb(0, 110, 255), rgb(226, 45, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.loginButton {
+    background-color: rgb(33, 2, 104);
+    border-color: rgb(33, 2, 104);
+}
+
+@media (max-width: 768px) {
+    .mainDiv {
+        width: 90%;
+    }
+}
+
+@media (min-width: 769px) {
+    .mainDiv {
+        width: 50%;
+    }
+}

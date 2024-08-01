@@ -10,11 +10,12 @@ const routes: Routes = [
   {
     path: '', component: SidebarComponent, // Assuming SidebarComponent is the wrapper
     children: [
+
       { path: 'dashboard', component: DashboardComponent },
       { path: 'person', component: PersonCountComponent },
-      {path: 'vehicle', component: VehicleCountComponent},
-      {path: 'luggage', component: LuggageCountComponent} 
-      
+      { path: 'vehicle', component: VehicleCountComponent },
+      { path: 'luggage', component: LuggageCountComponent }
+
     ]
   }
 ];

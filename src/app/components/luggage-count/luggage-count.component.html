@@ -1,1 +1,122 @@
-<p>luggage-count works!</p>
+<div class="mainContainer">
+    <div class="backgroundImage">
+        <div class="imageText">
+            <h2 style="text-align: center;">Luggage</h2>
+            <span class="sentence">As of Date, the luggage detection system in Region has identified Count items, with detailed images available for review.</span>
+            <div class="row cardDiv">
+                <div class="col-6 d-flex align-items-center">
+                    <select id="locationSelect" class="form-select dropdownclass" (change)="selectLocation($event)">
+                        <option value="">Select Region</option>
+                        <option *ngFor="let location of loationsArray" [value]="location.Location">{{ location.Location
+                            }}</option>
+                    </select>
+                </div>
+                <div class="col-6 d-flex align-items-center justify-content-end">
+                    <div class="buttonClass">
+                        <button type="button" data-toggle="modal" data-target="#exampleModalCenter2" class="btn btn-dark report">Download Report</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row maincardDiv">
+        <div class="col-lg-4 col-sm-6" *ngFor="let region of luggageArray">
+            <div class="card-stats card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-5">
+                            <img src="assets/images/bagIcon.webp" alt="Description of image" style="width: 3rem;">
+                            <div>Region : 1</div>
+                        </div>
+                        <div class="col-7">
+                            <div class="numbers">
+                                <p class="card-category">Luggage Count</p>
+                                <h4 class="card-title">50</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <hr style="color: #000000;">
+                    <div class="statsDate">
+                        Date : 29 Jun 2024
+                        <span class="imageclass" data-toggle="modal" data-target="#exampleModalCenter"
+                            (click)="luggageImage(region.camera_region)">Images</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="slider-container">
+    <button class="nav-button left" (click)="scrollLeft()">&#10094;</button>
+    <div class="scroll-container" #scrollContainer>
+        <ng-container *ngFor="let src of imageSources">
+            <img [src]="src" alt="Image" class="scroll-image">
+        </ng-container>
+    </div>
+    <button class="nav-button right" (click)="scrollRight()">&#10095;</button>
+</div> -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Luggage Images</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div *ngFor="let src of imageSources">
+            <img [src]="src" alt="Image" class="scrollimage">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary closeButton" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- download card -->
+  <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Luggage Count Report</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- app.component.html -->
+                <div class="container">
+                    <form #timestampForm="ngForm" (ngSubmit)="downloadData(timestampForm)">
+                      <div class="form-group mb-3">
+                        <label for="inTime" class="form-label">In Time</label>
+                        <input type="datetime-local" id="inTime" class="form-control" [(ngModel)]="inTime" name="inTime" required>
+                      </div>
+                      <div class="form-group mb-3">
+                        <label for="outTime" class="form-label">Out Time</label>
+                        <input type="datetime-local" id="outTime" class="form-control" [(ngModel)]="outTime" name="outTime" required>
+                      </div>
+                      <div class="form-group mb-3">
+                        <label for="dropdown" class="form-label">Select Option</label>
+                        <select id="dropdown" class="form-select dropdown" [(ngModel)]="selectedOption" name="selectedOption" required>
+                          <option *ngFor="let option of luggageArray" [value]="option.cam_ip">{{ option.cam_ip }}</option>
+                        </select>
+                      </div>
+                    
+                    </form>
+                  </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="resetForm(timestampForm)" class="btn btn-secondary cancelButton"
+                    data-dismiss="modal">Close</button>
+                <button type="button" (click)="downloadData(timestampForm)" data-dismiss="modal"
+                    class="btn btn-dark reports">Download</button>
+            </div>
+        </div>
+    </div>
+</div>

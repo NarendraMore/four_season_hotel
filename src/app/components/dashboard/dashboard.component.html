@@ -6,42 +6,41 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-5">
-                                <div class="icon-big text-center icon-warning"><i
-                                        class="nc-icon nc-chart text-warning"></i></div>
+                                <img src="assets/images/personIcon.webp" alt="Description of image" style="width: 3rem;">
                             </div>
                             <div class="col-7">
                                 <div class="numbers">
                                     <p class="card-category">Person Count</p>
-                                    <h4 class="card-title">50</h4>
+                                    <h4 class="card-title">{{CountArrayIn}}</h4>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="card-footer">
                         <hr style="color: #000000;">
-                        <div class="stats"><i class="fas fa-redo mr-1" style="cursor: pointer;"></i>Update Now</div>
+                        <div class="stats" ><i class="fas fa-redo mr-1" (click)="refreshPcount()" style="cursor: pointer;"></i>Update Now</div>
                     </div>
                 </div>
+                
             </div>
             <div class="col-lg-4 col-sm-6">
                 <div class="card-stats card">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-5">
-                                <div class="icon-big text-center icon-warning"><i
-                                        class="nc-icon nc-light-3 text-success"></i></div>
+                                <img src="assets/images/vehicleIcon.webp" alt="Description of image" style="width: 3rem;">
                             </div>
                             <div class="col-7">
                                 <div class="numbers">
                                     <p class="card-category">Vehicle Count</p>
-                                    <h4 class="card-title">45</h4>
+                                    <h4 class="card-title">{{currentvehicleInCount}}</h4>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="card-footer">
                         <hr>
-                        <div class="stats"><i class="fas fa-redo mr-1" style="cursor: pointer;"></i>Update Now</div>
+                        <div class="stats"><i (click)="refreshVcount()" class="fas fa-redo mr-1" style="cursor: pointer;"></i>Update Now</div>
                     </div>
                 </div>
             </div>
@@ -50,20 +49,19 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-5">
-                                <div class="icon-big text-center icon-warning"><i
-                                        class="nc-icon nc-vector text-danger"></i></div>
+                                <img src="assets/images/bagIcon.webp" alt="Description of image" style="width: 3rem;">
                             </div>
                             <div class="col-7">
                                 <div class="numbers">
                                     <p class="card-category">Luggage Count</p>
-                                    <h4 class="card-title">23</h4>
+                                    <h4 class="card-title">{{totalluggageCount}}</h4>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="card-footer">
                         <hr>
-                        <div class="stats"><i class="fas fa-redo mr-1" style="cursor: pointer;"></i>Update Now</div>
+                        <div class="stats"><i (click)="refreshLcount()" class="fas fa-redo mr-1" style="cursor: pointer;"></i>Update Now</div>
                     </div>
                 </div>
             </div>

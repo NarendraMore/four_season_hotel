@@ -6,25 +6,28 @@
         <!-- <img src="assets/images/AnemoiLogo.png" width="40%" alt="" /> -->
       </div>
       <div id="menu">
-        <a class="accordion" [class.active]="activePanel === 'total'" (click)="togglePanel('total')"
-          [routerLink]="dashboard">Dashboard</a>
+        <a class="accordion" [class.active]="activePanel === 'total'" (click)="togglePanel('total')" [routerLink]="dashboard">Dashboard</a>
+      
         <a class="accordion" [class.active]="activePanel === 'rhs'" (click)="togglePanel('rhs')">Object Count</a>
         <div class="panel" [ngClass]="{ active: activePanel === 'rhs' }">
           <ul>
-            <li [class.active]="activeMenu === 'rsh'" [routerLink]="['person']">Person Count </li>
-            <li [class.active]="activeMenu === 'lsh'" [routerLink]="['vehicle']">Vehicle count</li>
-            <li [class.active]="activeMenu === 'lsh'" [routerLink]="['luggage']">Luggage Count</li>
+            <li [class.active]="activeMenu === 'person'" [routerLink]="['/sidebar/person']">Person Count</li>
+            <li [class.active]="activeMenu === 'vehicle'" [routerLink]="['/sidebar/vehicle']">Vehicle Count</li>
+            <li [class.active]="activeMenu === 'luggage'" [routerLink]="['/sidebar/luggage']">Luggage Count</li>
           </ul>
         </div>
+      
         <a class="accordion" [class.active]="activePanel === 'lhs'" (click)="togglePanel('lhs')">Detection</a>
         <div class="panel" [ngClass]="{ active: activePanel === 'lhs' }">
-            <ul>
-              <li [class.active]="activeMenu === 'rsh'" (click)="displayMenu('rsh')">Object Detection</li>
-              <li [class.active]="activeMenu === 'lsh'" (click)="displayMenu('lsh')">Fire Detection</li>
-              <li [class.active]="activeMenu === 'lsh'" (click)="displayMenu('lsh')">Smoke Detection</li>
-            </ul>
+          <ul>
+            <li [class.active]="activeMenu === 'object'" (click)="displayMenu('object')" [routerLink]="['/sidebar/object']">Object Detection</li>
+            <li [class.active]="activeMenu === 'fire'" (click)="displayMenu('fire')" [routerLink]="['/sidebar/fire']">Fire Detection</li>
+            <li [class.active]="activeMenu === 'smoke'" (click)="displayMenu('smoke')" [routerLink]="['/sidebar/smoke']">Smoke Detection</li>
+          </ul>
         </div>
       </div>
+      
+      
 
     </div>
   </div>
@@ -34,8 +37,8 @@
         <span (click)="toggleSidebar()"><img style="cursor: pointer" src="assets/images/menuicon.svg" alt="" />
         </span>
       </div>
-      <span id="logo">Four Seasons</span>
-      <a data-rb-event-key="#pablo" class="m-0 nav-link active"><span class="no-icon">Log out</span></a>
+      <span id="logo" style="font-weight: 500;">Four Seasons</span>
+      <a data-rb-event-key="#pablo" class="m-0 nav-link active" (click)="logOut()"><span class="no-icon">Log out</span></a>
     </div>
     <div id="content">
       <router-outlet></router-outlet>

@@ -21,9 +21,70 @@
     border-color: #ea801d;
    
 }
+.reports{
+    font-weight: 500;
+    line-height: 20px;
+    background-color: #ea801d;
+    border-color: #ea801d;
+}
+.reports :focus{
+    border-color: #ea801d;
+    box-shadow: #ea801d;
+    
+}
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 15px;
+    background: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-label {
+    font-weight: bold;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+  }
+  .dropdown{
+    width: 69%;
+    border-color: #ea801d;
+  }
+.modal-title{
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 15px;
+    font-family: Neue Helvetica, helvetica, sans-serif;
+}
+.cancelButton{
+    background-color: transparent;
+    color: #ea801d;
+    border-color: #ea801d;
+    font-weight: 500;
+    line-height: 20px;
+}
 .form-control {
     margin-bottom: 10px;
     width: 300px;
+    border-color: #ea801d;
 }
 .buttonClass {
     /* display: flex;

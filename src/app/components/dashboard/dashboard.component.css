@@ -92,7 +92,7 @@
     background: none;
     border: 0;
     border-bottom: 1px solid #fff;
-    cursor: pointer;
+    /* cursor: pointer; */
     font-family: Neue Helvetica, helvetica, sans-serif;
     /* font-size: .75rem; */
     font-style: normal;
@@ -140,4 +140,7 @@
 }
 .card .stats {
     color: #8b8b8b;
+}
+.stats :hover{
+    color: #1dc7ea;
 }

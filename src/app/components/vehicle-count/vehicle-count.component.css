@@ -14,25 +14,32 @@
     background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
 }
-.report{
+
+.report {
     font-weight: 500;
     line-height: 20px;
     background-color: #ea801d;
     border-color: #ea801d;
-   
+
 }
-.imageButtonStyle{
+
+.imageButtonStyle {
     background-color: #b1afaf;
     border-color: #ea801d;
+    height: 30px;
+    padding-bottom: 2rem;
 }
-.imageButtonStyle:focus{
-    border-color: #ea801d; 
+
+.imageButtonStyle:focus {
+    border-color: #ea801d;
     box-shadow: 0 0 5px #ea801d
 }
+
 .form-control {
     margin-bottom: 10px;
     width: 300px;
 }
+
 .buttonClass {
     /* display: flex;
     justify-content: center;
@@ -40,13 +47,15 @@
     padding-top: 5%;
     float: right;
 }
-.tableMain{
+
+.tableMain {
     margin: 1%;
     padding: 2%;
     border: 1px solid #ccc;
     border-radius: 1%;
     box-shadow: 0 4px 8px rgb(0, 0, 0, 0.4);
 }
+
 ::ng-deep .ngx-pagination .current {
     padding: .1875rem .625rem;
     background: #b1afaf !important;
@@ -54,19 +63,25 @@
     cursor: default;
     border-radius: 30%;
 }
-.searchBox{
+
+.searchBox {
     border-color: #ea801d;
-    
+
 }
+
 .searchBox:focus {
-    border-color: #ea801d; /* Change to your desired focus border color */
-    box-shadow: 0 0 5px #ea801d /* Optional: add a shadow for better visibility */
-  }
-.pagination{
-   align-items: center;
-   justify-content: center;
-   display: flex;
+    border-color: #ea801d;
+    /* Change to your desired focus border color */
+    /* Optional: add a shadow for better visibility */
+    box-shadow: 0 0 5px #ea801d
 }
+
+.pagination {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
 .imageText h2 {
     color: white;
     margin: 0;
@@ -140,6 +155,98 @@
     padding-left: 2%;
 }
 
+.closeButton {
+    background-color: #ea801d;
+    /* background: none; */
+    border-color: #ea801d;
+    color: #000000;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 15px;
+}
+.closeButton :focus{
+    border-color: #ea801d;
+    /* background-color: #ea801d; */
+    box-shadow: 0 0 5px #ea801d
+}
+.modal-title{
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 15px;
+    font-family: Neue Helvetica, helvetica, sans-serif;
+}
+.report{
+    font-weight: 500;
+    line-height: 20px;
+    background-color: #ea801d;
+    border-color: #ea801d;
+   
+}
+.reports{
+    font-weight: 500;
+    line-height: 20px;
+    background-color: #ea801d;
+    border-color: #ea801d;
+}
+.reports :focus{
+    border-color: #ea801d;
+    box-shadow: #ea801d;
+    
+}
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 15px;
+    background: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-label {
+    font-weight: bold;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+  }
+  .dropdown{
+    width: 69%;
+    border-color: #ea801d;
+  }
+.modal-title{
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 15px;
+    font-family: Neue Helvetica, helvetica, sans-serif;
+}
+.cancelButton{
+    background-color: transparent;
+    color: #ea801d;
+    border-color: #ea801d;
+    font-weight: 500;
+    line-height: 20px;
+}
+.form-control {
+    margin-bottom: 10px;
+    width: 300px;
+    border-color: #ea801d;
+}
 /* Media Queries */
 @media (max-width: 1200px) {
     .cardDiv {
@@ -224,4 +331,4 @@
     .sentence {
         font-size: 10px;
     }
-    }
+}
